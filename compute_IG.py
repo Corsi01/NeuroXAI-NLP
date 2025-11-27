@@ -7,7 +7,6 @@ import gc
 
 from train_utils import load_fmri, load_stimulus_features, align_features_and_fmri_samples
 
-
 # Config
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 subjects = [1, 2, 3, 5]
@@ -23,6 +22,20 @@ def load_model(subject, layer, zone, device='cuda'):
     model.to(device)
     model.eval()
     return model
+
+# Define simple MLP model architecture
+class OneHiddenMLP(nn.Module):
+    def __init__(self, input_dim, hidden_dim, output_dim, dropout_rate):
+        super().__init__()
+        self.model = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Dropout(dropout_rate),
+            nn.Linear(hidden_dim, output_dim)
+        )
+
+    def forward(self, x):
+        return self.model(x)
 
 # Define function to load data for IG computation
 def load_ig_data(sub, features_train, features_test):
@@ -110,4 +123,5 @@ def main():
        
 
 if __name__ == '__main__':
+
     main()
