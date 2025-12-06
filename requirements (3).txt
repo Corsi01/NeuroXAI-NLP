@@ -1,0 +1,13 @@
+torch
+transformers
+nilearn
+optuna
+scikit-learn
+scipy
+pandas
+numpy
+matplotlib
+seaborn
+spacy
+h5py
+tqdm
