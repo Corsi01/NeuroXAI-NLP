@@ -33,9 +33,6 @@ src/
 data/
   allParcels-language-SN220.nii   # Fedorenko language network masks
 
-report/
-  main.tex                    # LaTeX report
-  references.bib              # Bibliography
 ```
 
 ## Data
@@ -49,23 +46,7 @@ This project uses the Algonauts 2025 Challenge dataset derived from CNeuroMod (F
 3. Encoding Models: MLP with Optuna-optimized hyperparameters
 4. Attribution: Integrated Gradients for feature importance analysis
 
-## Requirements
-
-```
-torch
-transformers
-nilearn
-optuna
-scikit-learn
-scipy
-pandas
-numpy
-matplotlib
-seaborn
-spacy
-```
-
-## References
+## Main References
 
 - Radford et al. (2019). Language models are unsupervised multitask learners.
 - Schrimpf et al. (2021). The neural architecture of language: Integrative modeling converges on predictive processing.
